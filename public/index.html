@@ -1,0 +1,85 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+	<title>Contacts</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"><script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
+    <script></script>
+    <script></script>
+    <style>
+		h2 {
+			text-align: center;
+			
+		}
+		
+		table thead tr th {
+			
+			box-sizing: border-box;
+			transition: all 0.3s ease-in-out;
+			font-size: 11px;
+			color: #7f8ba0;
+			line-height: 12px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-weight: 500;
+			padding: 15px 18px 13px 10px;
+			cursor: pointer;
+			background-color: #f8fafb;
+			border: 1px solid #dde6eb;
+		}
+    
+		.search input {
+			float:right;
+			border-radius: 3px;
+			border: 2px solid #dde6eb;
+			background-color: transparent;
+			padding: 13px 45px 12px 25px;
+			font-weight: 400;
+			width: 22%;
+			font-size: 15px;
+		}
+    </style>
+</head>
+	<body ng-app="contactApp">
+		<div class="container" ng-controller="contactCtrl">
+			<div class="row">
+				<div class="panel panel-info">
+					<div class="panel heading">
+						<h2>Address Book</h2>
+					</div>
+					<div class="panel-body">
+						<form class="form-inline">
+							<div class="search">
+								<input type="text" class="search" placeholder="Search Contacts">
+							</div>
+						</form>
+						<table class="table">
+							<thead>
+								<tr>
+									<th></th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Location</th>
+									<th>Info</th>
+									<th><a ng-click="newContact()"><span class="glyphicon glyphicon-plus pull-right"></span></a></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr  ng-repeat="contact in contacts | filter:searchObj | orderBy:sortProp:sortReverse">
+									<td class="img-left col-xs-2"><img ng-src="{{contact.img}}" alt="Contact" class="contactImg img-responsive img-circle" /></td>
+									<td><h4>{{contact.firstName}}</h4></td>
+									<td><h4>{{contact.lastName}}</h4></td>
+									<td><h4>{{contact.state}}: {{contact.city}}</h4></td>
+									<td><a ng-click="loadContact(contact)"><span class="glyphicon glyphicon-info-sign" ></span></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

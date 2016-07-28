@@ -1,20 +1,20 @@
- var express = require('express');
- var bodyParser = require('body-parser');
- var mongoose = require('mongoose');
+var express = require('express');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
  
- var app = express();
- app.use(express.static('./public'));
- app.use(bodyParser());
- 
- mongoose.promise = global.Promise;
  mongoose.connect('mongodb://okcoders:okcoders@okcoders.co/preston');
+ mongoose.promise = Promise;
  
- var port = process.env.PORT || 8080;
- app.listen(port, function () {
-	 console.log('listening on http://localhost:8080');
- });
- 
- var Contact = require('./models/contact');
+var app = express();
+app.use(bodyParser());
+app.use(express.static('./public'));
+
+var port = process.env.PORT || 8080;
+app.listen(port, function () {
+	console.log('listening on http://localhost:8080');
+});
+
+var Contact = require('./models/contact');
 
 app.get('/contacts', function(req, res){
     Contact.find().exec().then(function(contact){

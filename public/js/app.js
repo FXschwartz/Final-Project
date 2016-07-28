@@ -1,1 +1,1 @@
-var app = angular.module('contactApp', ['ui-bootstrap']); 
+angular.module('contactApp', ['ui.bootstrap']);

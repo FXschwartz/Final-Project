@@ -1,6 +1,6 @@
  var mongoose = require('mongoose');
  
- var contact = mongoose.model('contact', {
+ var Contact = mongoose.model('contact', {
 	 img: 			String,
 	 firstName: 	String,
 	 lastName:		String,
@@ -14,5 +14,5 @@
 	 relationship:	String
  });
  
- model.exports = Contact;
+ module.exports = Contact;
 	 

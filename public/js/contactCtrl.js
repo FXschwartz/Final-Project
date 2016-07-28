@@ -13,7 +13,8 @@ $scope.categories = ['First Name', 'Last Name', 'Location'];
 		console.log('loadContact ' + contact._id);
 		var modalInstance = $uibModal.open({
 			templateUrl: 'modals/contactInfo.html',
-			controller: 'contactInfoCtrl',
+			controller: 'editContactCtrl',
+			windowClass: 'large-Modal',
 			resolve: {
 				contactItem: function(){return angular.copy(contact);}
 			}
@@ -28,7 +29,8 @@ $scope.categories = ['First Name', 'Last Name', 'Location'];
 		var contact = {};
 		var modalInstance = $uibModal.open({
 			templateUrl: 'modals/editContact.html',
-			controller: 'contactEditCtrl',
+			controller: 'editContactCtrl',
+			windowClass: 'large-Modal',
 			resolve: {
 				contactItem: function(){return angular.copy(contact);}
 			}

@@ -5,9 +5,8 @@ angular.module('contactApp').controller('contactCtrl', function($scope,$http,$ui
 			$scope.contacts = response.data;
 		});	
 	};
-	getContacts();
 	
-$scope.categories = ['First Name', 'Last Name', 'Location'];
+	getContacts();
 
 	$scope.loadContact = function(contact){
 		console.log('loadContact ' + contact._id);
